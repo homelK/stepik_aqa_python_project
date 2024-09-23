@@ -1,5 +1,6 @@
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
+from .pages.test_product_page import ProductPage
 
 def test_guest_can_go_to_login_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
@@ -9,5 +10,18 @@ def test_guest_can_go_to_login_page(browser):
     login_page = LoginPage(browser, browser.current_url)
     login_page.should_be_login_page()
 
+def test_guest_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.should_be_product_page()
+    product_page.add_product_to_basket()
 
+    product_name = product_page.get_product_name()
+    product_name_confirmaion = product_page.get_product_name_on_confirmation_page()
+    assert product_name == product_name_confirmaion, "Product names are different"
+
+    product_price = product_page.get_product_price()
+    product_price_confirmation = product_page.get_product_price_on_confirmation_page()
+    assert product_price == product_price_confirmation
 
