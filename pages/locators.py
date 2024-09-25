@@ -12,7 +12,7 @@ class LoginPageLocators:
     EMAIL_FIELD_REGISTER_FORM = (By.CSS_SELECTOR, "input[name='registration-email']")
     PASSW_FIELD_REGISTER_FORM = (By.CSS_SELECTOR, "input[name='registration-password1']")
     PASSW_CONFIRM_FIELD_REGISTER_FORM = (By.CSS_SELECTOR, "input[name='registration-password2']")
-    SUBMIT_BTN_REGISTR_FORM = (By.CSS_SELECTOR, "button[name='registration_submit']")
+    SUBMIT_BTN_REGISTER_FORM = (By.CSS_SELECTOR, "button[name='registration_submit']")
 
 class ProductPageLocators:
      ADD_TO_BASKET_BTN = (By.XPATH, "//button[contains(@class, 'btn-add-to-basket')]")

@@ -9,13 +9,13 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        assert "login" in self.browser.current_url, "It is not the login page"
+        assert "login" in self.browser.current_url, "It is not the login page, but should be"
 
     def should_be_login_form(self):
-        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "Login form is not present"
+        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), "Login form is not present, but should be"
 
     def should_be_register_form(self):
-        assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "Register form is not present"
+        assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "Register form is not present, but should be"
 
     def type_email_to_register_form(self, email):
         email_field = self.find_element(*LoginPageLocators.EMAIL_FIELD_REGISTER_FORM)
@@ -30,5 +30,5 @@ class LoginPage(BasePage):
         passw_field.send_keys(passw)
 
     def submit_register_form(self):
-        submit_btn = self.find_element(*LoginPageLocators.SUBMIT_BTN_REGISTR_FORM)
+        submit_btn = self.find_element(*LoginPageLocators.SUBMIT_BTN_REGISTER_FORM)
         submit_btn.click()
